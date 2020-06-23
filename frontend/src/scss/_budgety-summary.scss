@@ -1,0 +1,107 @@
+.budgety-summary {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+
+  &__title {
+    text-align: center;
+    padding-bottom: 1.5rem;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  &__incomes-wrapper,
+  &__expenses-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 4rem 2rem;
+
+    &__content {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      width: 100%;
+      max-width: 600px;
+
+      & .incomes-empty,
+      & .expenses-empty {
+        display: none;
+        font-size: 0.9375rem;
+        font-style: italic;
+        text-align: center;
+
+        &.show {
+          display: block;
+        }
+      }
+
+      & .incomes-list,
+      & .expenses-list {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+
+        & .item {
+          width: 100%;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+          padding: 1rem;
+
+          &__description {
+            width: 70%;
+            line-height: 2rem;
+          }
+
+          &__value {
+            width: 40%;
+          }
+
+          &__percentage {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-width: 80px;
+            min-height: 35px;
+            border-radius: 6px;
+            background-color: rgba(255, 255, 255, 0.2);
+          }
+
+          &__delete {
+            padding-left: 0.875rem;
+            cursor: pointer;
+          }
+
+          &:nth-child(even) {
+            background-color: rgba(0, 0, 0, 0.2);
+          }
+        }
+
+      }
+    }
+  }
+
+  &__incomes-wrapper {
+    background-color: $turquoise;
+  }
+
+  &__expenses-wrapper {
+    background-color: $red;
+  }
+
+  @media screen and (min-width: 900px) {
+    flex-direction: row;
+
+    &__incomes-wrapper,
+    &__expenses-wrapper {
+      width: 50%;
+    }
+  }
+}
